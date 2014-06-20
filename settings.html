@@ -1,0 +1,84 @@
+<ons-navigator title="Settings"  right-button-icon="fa fa-lg fa-plus" on-right-button-click="nuevoRequest()" ng-controller="settingsController">
+    <ons-page class="center">
+        <h1>Settings</h1>
+
+        <ons-list>
+            <h3 class="topcoat-list__header">{{config.label}} config</h3>
+            <ons-list-item>
+                <ons-row>
+                  <ons-col>
+                        <label>
+                            Icon: 
+                        </label>
+                      <ons-text-input type="text" ng-model="config.icon" placeholder="icon">
+                      </ons-text-input>
+                  </ons-col>
+                  <ons-col>
+                      <label>
+                          Name of App: 
+                      </label>
+                    <ons-text-input type="text" ng-model="config.label" placeholder="Name">
+                    </ons-text-input>
+                  </ons-col>
+                </ons-row>
+            </ons-list-item>
+            <h3 class="topcoat-list__header">Buttons</h3>
+            <ons-list-item ng-repeat="(key, unRequest) in requests">
+                <ons-row>
+                  <ons-col>
+                    <label>
+                        Button name: 
+                    </label>
+                    <ons-text-input type="text" ng-model="unRequest.label" placeholder="Button name">
+                    </ons-text-input>
+                  </ons-col>
+                  <ons-col>
+                    <ons-row>
+                      <ons-col>
+                          <label>
+                              URL: 
+                          </label>
+                        <ons-text-input type="url" ng-model="unRequest.url" placeholder="http://">
+                        </ons-text-input>
+                      </ons-col>
+                    </ons-row>
+                    <ons-row>
+                      <ons-col>
+                          <label>
+                              Method: 
+                          </label>
+                        <ons-select name="method" ng-model="unRequest.method" >
+                            <option value="GET">GET</option>
+                            <option value="POST">POST</option>
+                            <option value="PUT">PUT</option>
+                        </ons-select>
+                      </ons-col>
+                    </ons-row>
+                    <ons-row>
+                      <ons-col>
+                          <label>
+                              Color: 
+                          </label>
+                        <ons-text-input type="text" ng-model="unRequest.color" placeholder="#FFFFFF">
+                        </ons-text-input>
+                      </ons-col>
+                    </ons-row>
+                  </ons-col>
+                </ons-row>
+               
+                <ons-row>
+                    <ons-col>
+                        <ons-button class="topcoat-icon-button borrar" ng-click="borrarRequest(key)">
+                            <i class="fa fa-minus"></i> Delete
+                        </ons-button>
+                    </ons-col>
+                </ons-row>      
+            </ons-list-item>
+            <ons-list-item>
+                <ons-button class="topcoat-icon-button" ng-click="nuevoRequest()">
+                    <i class="fa fa-plus"></i> Add new button
+                </ons-button>
+            </ons-list-item>
+        </ons-list>
+    </ons-page>
+</ons-navigator>

@@ -1,0 +1,18 @@
+<ons-navigator title="{{config.label}}" ng-controller="homeController" right-button-icon="fa fa-lg fa-edit" on-right-button-click="actionEditar()">
+    <ons-page class="center">
+    	<ons-scroller class="center">
+            <ons-row ng-repeat="(key, unRequest) in requests">
+                <ons-col>
+                    <ons-button class="boton" style="background-color:{{unRequest.color}}" type="{{unRequest.type}}" ng-click="click(key)">
+                       {{unRequest.label}} {{unRequest.label}} {{unRequest.label}} {{unRequest.label}}
+                    </ons-button>
+                </ons-col>
+                <ons-col size="10" ng-show="edit">
+                    <ons-button class="topcoat-icon-button--quiet" ng-click="editar(key)">
+                        <i class="fa fa-lg fa-edit"></i>
+                    </ons-button>
+                </ons-col>
+            </ons-row>
+        </ons-scroller>
+    </ons-page>
+</ons-navigator>
